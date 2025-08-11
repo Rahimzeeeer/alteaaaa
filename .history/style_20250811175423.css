@@ -1,0 +1,255 @@
+/* =========================
+   Variables & reset
+========================= */
+:root{
+  --green: #0a4e48;      /* vert profond (fond global) */
+  --teal:  #004d4d;      /* navbar / boutons */
+  --gold:  gold;         /* accents dorés */
+  --ink:   #233;         /* texte sombre sur fond clair */
+  --white: #fff;
+}
+
+*{ box-sizing: border-box; }
+
+/* ===== Fonts ===== */
+/* Exemple : Serif pour titres et Sans-serif pour le reste */
+@import url('https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&family=Open+Sans:wght@400;600&display=swap');
+
+
+/* Titres en serif */
+h1, h2, h3, .section-title {
+  font-family: 'Merriweather', serif;
+  font-size: 2.5rem; /* plus grand */
+}
+
+body{
+  margin: 0;
+  font-family: 'Open Sans', sans-serif;
+  background-color: var(--green);
+  color: var(--white);
+}
+
+/* =========================
+   Navbar
+========================= */
+.navbar{
+  background-color: var(--teal);
+  padding: 10px 0;
+  text-align: right;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+}
+.navbar ul{ list-style: none; margin: 0; padding: 0; }
+.navbar li{ display: inline-block; margin: 0 15px; }
+.navbar a{
+  color: #ccc;
+  text-decoration: none;
+  font-size: 16px;
+  transition: color .3s ease;
+}
+.navbar a:hover,
+.navbar a.active{ color: var(--white); }
+.navbar a.active{ font-weight: bold; }
+
+/* =========================
+   Hero
+========================= */
+.hero{
+  position: relative;
+  width: 100%;
+  height: 90vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.hero-image{
+  position: absolute; inset: 0;
+  width: 100%; height: 100%;
+  object-fit: cover; z-index: -1;
+  /* flou léger + léger zoom */
+  filter: blur(2px);
+  transform: scale(1.03);
+}
+.hero-content{ text-align: center; color: var(--white); }
+.hero-logo{ max-width: 200px; margin-bottom: 30px; }
+
+.hero-buttons{ margin: 20px 0; }
+.hero-buttons .btn{
+  display: inline-block;
+  background-color: var(--teal);
+  color: var(--gold);
+  padding: 10px 16px;         /* taille affinée */
+  margin: 10px;
+  font-weight: bold;
+  text-decoration: none;
+  border-radius: 4px;
+  transition: background .3s;
+  font-size: .85em;
+}
+.hero-buttons .btn:hover{ background-color: #006666; }
+
+.hero-slogan{
+  margin-top: 30px;
+
+  letter-spacing: 1.5px;
+  background-color: rgba(0,77,77,.8);
+  padding: 8px 15px;
+  display: inline-block;
+}
+
+/* =========================
+   Catégories
+========================= */
+.section-title{
+  text-align: center;
+  margin: 30px 0;
+  letter-spacing: 2px;
+  color: var(--white);
+}
+.category-grid{
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 15px;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+.category-item{ position: relative; overflow: hidden; }
+.category-item img{ width: 100%; display: block; }
+.category-item span{
+  position: absolute; left: 50%; bottom: 10px;
+  transform: translateX(-50%);
+  background-color: rgba(0,77,77,.8);
+  color: var(--white);
+  padding: 6px 12px;
+  font-weight: bold;
+  border-radius: 4px;
+}
+
+/* =========================
+   Notre resort
+========================= */
+.resort{
+  max-width: 1000px;
+  margin: 50px auto;
+  padding: 20px;
+  color: var(--white);
+}
+.resort-text h2{ font-size: 2em; margin: 0 0 10px; }
+.resort-text p{ margin: 15px 0; line-height: 1.5; }
+.btn-gold{
+  background-color: var(--gold);
+  color: var(--teal);
+  padding: 8px 14px;
+  text-decoration: none;
+  font-weight: bold;
+  border-radius: 20px;
+}
+.resort-video video{
+  margin-top: 20px;
+  width: 100%;
+  border-radius: 8px;
+}
+
+/* =========================
+   Actualités
+========================= */
+.actualites{
+  padding: 40px;
+  text-align: center;
+  background-color: var(--teal);
+  color: var(--white);
+}
+.actus-grid{
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+.actus-item{
+  background: transparent;
+  border: 1px solid var(--gold);
+  padding: 10px;
+  position: relative;
+}
+.actus-item img{
+  width: 100%;
+  height: 300px;         /* taille uniforme */
+  object-fit: cover;     /* recadrage propre */
+  border-bottom: 2px solid var(--gold);
+}
+.plus-btn{
+  position: absolute; bottom: 10px; right: 10px;
+  background-color: var(--gold);
+  color: var(--teal);
+  font-weight: bold;
+  border-radius: 50%;
+  padding: 5px 10px;
+  cursor: pointer;
+}
+
+/* =========================
+   Avis (fond flou en arrière-plan)
+========================= */
+.avis{
+  position: relative;
+  overflow: hidden;
+  min-height: 100vh;                    /* ≈ une page */
+  display: flex; flex-direction: column;
+  justify-content: center; align-items: center;
+  padding: 60px 20px;
+  text-align: center;
+  color: var(--white);
+}
+.avis::before{
+  content: "";
+  position: absolute; inset: 0;
+  background: url('images/index/avisbg.png') center/cover no-repeat;
+  filter: blur(2px);
+  transform: scale(1.03);
+  z-index: 0;
+}
+.avis > *{ position: relative; z-index: 1; }
+.avis h2{ margin-bottom: 24px; font-size: 2.2rem; }
+.avis-container{
+  display: flex; justify-content: center; flex-wrap: wrap;
+  gap: 40px;
+}
+.avis-item{ max-width: 360px; font-style: italic; }
+
+/* =========================
+   Nous contacter
+========================= */
+.contact{
+  background-color: #d4a743;  /* fond or/moutarde */
+  padding: 60px 20px;
+  color: var(--ink);
+}
+.contact h2{
+  margin: 0 auto 30px;
+  max-width: 1000px;
+}
+.contact-grid{
+  max-width: 1000px; margin: 0 auto;
+  display: grid; grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+.contact-box{
+  background: rgba(255,255,255,.02);
+  border: 2px solid var(--green);
+  border-radius: 8px;
+  padding: 24px;
+  min-height: 220px;
+  box-shadow: 0 2px 6px rgba(0,0,0,.08);
+}
+.contact-box h3{
+  margin: 0 0 12px;
+  font-weight: 700;
+}
+
+/* =========================
+   Responsive
+========================= */
+@media (max-width: 900px){
+  .category-grid{ grid-template-columns: 1fr 1fr; }
+  .actus-grid{ grid-template-columns: 1fr; }
+  .contact-grid{ grid-template-columns: 1fr; }
+  .hero{ height: 70vh; }
+}

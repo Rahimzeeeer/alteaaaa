@@ -29,19 +29,6 @@ body{
   color: var(--white);
 }
 
-/* Texte vert sur fond jaune */
-.gold-bg {
-    background-color: #d4a949;
-    color: #004d40; /* Vert foncé élégant */
-}
-
-.gold-bg h2,
-.gold-bg h3,
-.gold-bg p {
-    color: #004d40;
-}
-
-
 /* =========================
    Navbar
 ========================= */
@@ -428,268 +415,120 @@ body{
 
 
 
-/* ===== Restaurant ===== */
+/* =========================
+   Restaurant
+========================= */
 
 /* HERO */
-.resto-hero {
+.resto-hero{
   position: relative;
   height: 70vh;
+  display: grid;
+  place-items: center;
   overflow: hidden;
 }
-.resto-hero img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  filter: brightness(0.75);
+.resto-hero::before{
+  content:"";
+  position:absolute; inset:0;
+  background: var(--green) center/cover no-repeat;
+  background-image: var(--cover);
+  /* léger assombrissement pour la lisibilité du titre */
+  filter: brightness(.75);
+  z-index:0;
 }
-.resto-hero-content {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+.resto-hero-inner{
+  position: relative; z-index: 1;
   text-align: center;
-  color: white;
 }
-.resto-hero-content h1 {
-  font-size: 3rem;
-  margin-bottom: 20px;
+.resto-hero h1{
   font-family: 'Merriweather', serif;
+  font-size: clamp(2.4rem, 5vw, 5rem);
+  letter-spacing: .2rem;
+  margin: 0 0 18px;
 }
-.btn {
+.btn{
   display: inline-block;
-  padding: 12px 24px;
+  font-weight: 700;
   text-decoration: none;
-  border-radius: 5px;
-  font-weight: bold;
+  border-radius: 6px;
+  padding: 12px 22px;
 }
-.btn-teal { background-color: #004d40; color: white; }
-.btn-gold { background-color: #d4a743; color: #004d40; }
-.btn:hover { filter: brightness(1.1); }
+.btn-teal{ background: var(--teal); color: var(--white); }
+.btn-gold{ background: var(--gold); color: var(--teal); }
+.btn:hover{ filter: brightness(1.05); }
 
-/* UNE AVENTURE FRANÇAISE */
-.resto-aventure {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 20px;
-  padding: 50px 5%;
-  background-color: #004d40;
-  color: white;
+/* STORY */
+.resto-story{
+  max-width: 1200px;
+  margin: 60px auto;
+  padding: 0 20px;
 }
-.aventure-images {
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
+.resto-story-grid{
+  display: grid;
+  grid-template-columns: 1fr 1.1fr;
+  gap: 36px;
+  align-items: center;
 }
-.aventure-images img {
-  width: 100%;
-  border-radius: 8px;
-  object-fit: cover;
+.rs-images{ position: relative; }
+.rs-img{ display:block; width: 100%; height: auto; }
+.rs-img-1{ max-width: 520px; }
+.rs-img-2{
+  max-width: 380px;
+  position: absolute;
+  right: -10%;
+  bottom: -14%;
+  box-shadow: 0 12px 30px rgba(0,0,0,.25);
+  border: 6px solid rgba(0,0,0,.15);
+  background: #000; /* évite la bordure blanche */
 }
-.aventure-text {
-  flex: 1;
-}
-.aventure-text h2 {
+.rs-text h2{
   font-family: 'Merriweather', serif;
-  color: #d4a743;
-  margin-bottom: 20px;
+  font-size: clamp(1.8rem, 3vw, 2.4rem);
+  color: var(--gold);
+  margin: 0 0 12px;
 }
-.aventure-text p {
-  margin-bottom: 20px;
-  line-height: 1.6;
-}
+.rs-text p{ line-height: 1.8; margin-bottom: 18px; }
 
-/* HORAIRES */
-.resto-horaires {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 20px;
-  padding: 50px 5%;
-  background-color: #d4a743;
+/* HOURS + PHOTOS + CTA */
+.resto-hours{
+  background: #d4a743;
+  color: var(--ink);
+  padding: 60px 20px 70px;
 }
-.horaires-images {
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
+.rh-top{
+  max-width: 1200px; margin: 0 auto 26px;
+  display: grid; grid-template-columns: 1.2fr 1fr; gap: 28px;
 }
-.horaires-images img {
-  width: 100%;
-  border-radius: 8px;
-  object-fit: cover;
+.rh-right{ display: grid; align-content: start; gap: 20px; }
+.rh-img{ width: 100%; height: auto; display: block; }
+.rh-btn-right{ justify-self: end; }
+
+.rh-bottom{
+  max-width: 1200px; margin: 10px auto 0;
 }
-.horaires-text {
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-}
-.horaires-text h3 {
+.rh-bottom h3{
+  margin: 18px 0 10px;
+  color: var(--teal);
+  letter-spacing: .08rem;
+  font-size: clamp(1.4rem, 2.5vw, 2rem);
   font-family: 'Merriweather', serif;
-  margin-bottom: 20px;
-  color: #004d40;
 }
-.horaires-text ul {
-  margin-bottom: 20px;
-  padding-left: 20px;
+.rh-bottom ul{
+  margin: 0 0 6px 1rem;
+  padding-left: 1rem;
 }
-.horaires-text li {
-  margin-bottom: 10px;
-}
+.rh-bottom li{ margin: 6px 0; }
 
 /* Responsive */
-@media (max-width: 768px) {
-  .resto-aventure, .resto-horaires {
-    flex-direction: column;
-  }
+@media (max-width: 1000px){
+  .resto-story-grid{ grid-template-columns: 1fr; }
+  .rs-images{ margin-bottom: 40px; }
+  .rs-img-2{ position: static; max-width: 60%; margin: -14px 0 0 auto; }
+  .rh-top{ grid-template-columns: 1fr; }
+  .rh-btn-right{ justify-self: start; }
+}
+@media (max-width: 640px){
+  .resto-hero{ height: 56vh; }
+  .rs-img-2{ max-width: 75%; margin-top: 10px; }
 }
 
-
-/* Couleurs de fond */
-.gold-bg { background-color: #d4a949; padding: 60px 80px; }
-.green-bg { background-color: #004d40; color: white; padding: 60px 80px; }
-
-/* Titres */
-.title {
-    text-align: center;
-    font-size: 2.5rem;
-    margin-bottom: 40px;
-}
-.serif { font-family: 'Times New Roman', serif; }
-
-/* Section sport */
-.sport-grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 30px;
-}
-.sport-item img {
-    width: 100%;
-    height: 250px;
-    object-fit: cover;
-    border-radius: 6px;
-}
-.sport-item h3 {
-    margin-top: 10px;
-    font-size: 1.5rem;
-}
-
-/* Bien-être */
-.wellness-grid {
-    display: grid;
-    grid-template-columns: 1fr 1.5fr;
-    gap: 20px;
-}
-.wellness-grid .images {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 10px;
-}
-.wellness-grid img {
-    width: 100%;
-    height: 200px;
-    object-fit: cover;
-    border-radius: 6px;
-}
-
-/* Communauté */
-.community-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 30px;
-    text-align: center;
-}
-.community-item img {
-    width: 100%;
-    height: 250px;
-    object-fit: cover;
-    border-radius: 6px;
-}
-.community-item h3 {
-    margin-top: 15px;
-    font-size: 1.4rem;
-}
-
-/* Premium */
-.premium-text {
-    text-align: center;
-    margin-bottom: 40px;
-}
-.premium-grid {
-    display: grid;
-    grid-template-columns: 2fr 1fr 1fr;
-    gap: 20px;
-}
-.premium-grid img {
-    width: 100%;
-    height: 300px;
-    object-fit: cover;
-    border-radius: 6px;
-}
-
-.gold-bg {
-  background-color: #d4af37; /* jaune doré */
-  color: #004d40; /* texte vert foncé */
-}
-
-.apropos {
-  padding: 60px 5%;
-}
-
-.apropos h2 {
-  font-family: serif;
-  font-size: 2.5rem;
-  text-align: center;
-  margin-bottom: 50px;
-}
-
-.apropos-grid {
-  display: flex;
-  justify-content: space-between;
-  gap: 30px;
-}
-
-.apropos-item {
-  background-color: #004d40; /* vert foncé */
-  color: white;
-  border-radius: 8px;
-  overflow: hidden;
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-}
-
-.apropos-item img {
-  width: 100%;
-  height: 250px;
-  object-fit: cover;
-}
-
-.apropos-text {
-  padding: 20px;
-}
-
-.apropos-text h3 {
-  font-size: 1.4rem;
- color: white;
-  margin-bottom: 10px;
-  font-family: serif;
-}
-
-.apropos-text p, 
-.apropos-text ul {
-  font-size: 0.95rem;
-  color: white;
-  line-height: 1.5;
-}
-
-.apropos-text ul {
-  list-style-type: disc;
-  padding-left: 20px;
-}
-
-@media (max-width: 900px) {
-  .apropos-grid {
-    flex-direction: column;
-  }
-}

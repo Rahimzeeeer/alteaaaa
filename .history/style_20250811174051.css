@@ -1,0 +1,321 @@
+
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+}
+
+.navbar {
+  background-color: #004d4d; /* couleur proche de ta maquette */
+  padding: 10px 0;
+  text-align: right;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+}
+
+.navbar ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.navbar li {
+  display: inline-block;
+  margin: 0 15px;
+}
+
+.navbar a {
+  color: #ccc;
+  text-decoration: none;
+  font-size: 16px;
+  transition: color 0.3s ease;
+}
+
+.navbar a:hover {
+  color: white;
+}
+
+.navbar a.active {
+  font-weight: bold;
+  color: white;
+}
+
+
+/* Section Hero */
+.hero {
+  position: relative;
+  width: 100%;
+  height: 90vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.hero-image {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: -1;
+
+/* HERO : flou léger sur la photo + léger zoom pour éviter les bords transparents */
+
+  filter: blur(2px);
+  transform: scale(1.03);
+}
+
+
+.hero-content {
+  text-align: center;
+  color: white;
+}
+
+.hero-logo {
+  max-width: 200px;
+  margin-bottom: 30px;
+}
+
+.hero-buttons {
+  margin: 20px 0;
+}
+
+.hero-buttons .btn {
+  display: inline-block;
+  background-color: #004d4d;
+  color: gold;
+  padding: 12px 20px;
+  margin: 10px;
+  font-weight: bold;
+  text-decoration: none;
+  border-radius: 4px;
+  transition: background 0.3s;
+}
+
+.hero-buttons .btn:hover {
+  background-color: #006666;
+}
+
+
+.hero-slogan {
+  margin-top: 30px;
+  font-size: 1em; /* ← réduit par rapport à 1.2em */
+  letter-spacing: 1.5px; /* un peu moins espacé */
+  background-color: rgba(0, 77, 77, 0.8);
+  padding: 8px 15px; /* marges réduites */
+  display: inline-block;
+}
+
+.hero-buttons .btn {
+  font-size: 0.85em; /* taille du texte réduite */
+  padding: 10px 16px; /* moins de padding pour affiner */
+}
+
+
+/* Section catégories */
+.section-title {
+  text-align: center;
+  color: white;
+  margin: 30px 0;
+  letter-spacing: 2px;
+  background-color: #0a4e48;  /* vert profond */
+  color: #fff;                /* texte lisible par défaut */
+}
+
+.category-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 15px;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.category-item {
+  position: relative;
+  overflow: hidden;
+}
+
+.category-item img {
+  width: 100%;
+  display: block;
+}
+
+.category-item span {
+  position: absolute;
+  bottom: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: rgba(0,77,77,0.8);
+  color: white;
+  padding: 6px 12px;
+  font-weight: bold;
+  border-radius: 4px;
+}
+
+/* Section Notre Resort */
+.resort {
+    background-color: #0a4e48;  /* vert profond */
+  color: #fff;                /* texte lisible par défaut */
+  max-width: 1000px;
+  margin: 50px auto;
+  padding: 20px;
+  color: white;
+}
+
+.resort-text h2 {
+  font-size: 2em;
+}
+
+.resort-text p {
+  margin: 15px 0;
+  line-height: 1.5;
+}
+
+.btn-gold {
+  background-color: gold;
+  color: #004d4d;
+  padding: 8px 14px;
+  text-decoration: none;
+  font-weight: bold;
+  border-radius: 20px;
+}
+
+.resort-video video {
+  margin-top: 20px;
+  width: 100%;
+  border-radius: 8px;
+}
+
+
+/* Actualités */
+.actualites {
+  padding: 40px;
+  text-align: center;
+  background-color: #004d4d;
+  color: white;
+}
+
+.actus-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+.actus-item {
+  background-color: transparent;
+  border: 1px solid gold;
+  padding: 10px;
+  position: relative;
+}
+
+.actus-item img {
+  width: 100%;
+  height: 300px; /* même hauteur pour toutes les images */
+  object-fit: cover; /* recadrage propre */
+  border-bottom: 2px solid gold; /* optionnel pour un petit style */
+}
+
+
+
+.plus-btn {
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+  background-color: gold;
+  color: #004d4d;
+  font-weight: bold;
+  border-radius: 50%;
+  padding: 5px 10px;
+  cursor: pointer;
+}
+
+/* Avis */
+.avis {
+  background: url('images/index/avisbg.png') center/cover no-repeat;
+  padding: 60px 20px;
+  text-align: center;
+  color: white;
+  filter: blur(2px);
+  transform: scale(1.03);
+  z-index: 0;
+}
+
+/* contenu des avis au-dessus du fond flouté */
+.avis > * {
+  position: relative;
+  z-index: 1;
+}
+.avis {
+  min-height: 100vh;       /* occupe la hauteur de la fenêtre */
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* centre verticalement */
+  align-items: center;
+  padding: 60px 20px;
+  text-align: center;
+}
+
+.avis-container {
+  display: flex;
+  gap: 40px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.avis-item { max-width: 360px; font-style: italic; }
+.avis h2 { margin-bottom: 24px; font-size: 2.2rem; }
+
+.avis-container {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  gap: 30px;
+}
+
+.avis-item {
+  max-width: 300px;
+  font-style: italic;
+}
+
+/* Contact */
+
+/* fond or/moutarde de la section (garde si déjà présent) */
+.contact {
+  background-color: #d4a743;
+  padding: 60px 20px;
+  color: #233; /* lisible sur fond or */
+}
+
+.contact h2 {
+  margin: 0 auto 30px;
+  max-width: 1000px;
+}
+
+/* grille 3 colonnes */
+.contact-grid {
+  max-width: 1000px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+/* boîtes/rectangles */
+.contact-box {
+  background: rgba(255,255,255,0.02); /* quasi transparent */
+  border: 2px solid #0a4e48;          /* vert foncé comme la maquette */
+  border-radius: 8px;
+  padding: 24px;
+  min-height: 220px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+}
+
+.contact-box h3 {
+  margin-top: 0;
+  margin-bottom: 12px;
+  font-weight: 700;
+}
+
+/* responsive */
+@media (max-width: 900px) {
+  .contact-grid { grid-template-columns: 1fr; }
+}
+

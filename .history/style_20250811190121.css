@@ -671,7 +671,6 @@ body{
 
 .apropos-text h3 {
   font-size: 1.4rem;
- color: white;
   margin-bottom: 10px;
   font-family: serif;
 }
@@ -679,7 +678,6 @@ body{
 .apropos-text p, 
 .apropos-text ul {
   font-size: 0.95rem;
-  color: white;
   line-height: 1.5;
 }
 
