@@ -24,7 +24,7 @@ h1, h2, h3, .section-title {
 }
 
 h1{
-  font-size: 3rem; /* plus grand */
+  font-size: 2.5rem; /* plus grand */
 }
 h2{
   font-size: 2rem; /* plus grand */
@@ -248,7 +248,7 @@ body{
 }
 .actus-item h3,p{
   text-align: left;
-  padding: 0 30px;
+  padding: 30px;
 }
 .plus-btn{
   position: absolute; bottom: 10px; right: 10px;
