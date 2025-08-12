@@ -280,7 +280,7 @@ body{
   color: var(--ink);
 }
 .contact h2{
- 
+  margin: 0 auto 30px;
   max-width: 1000px;
   text-align: center;
 }

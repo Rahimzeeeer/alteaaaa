@@ -18,17 +18,8 @@
 
 /* Titres en serif */
 h1, h2, h3, .section-title {
-  font-family: 'Open sans', serif;
-  letter-spacing: 7px;
-
+  font-family: 'Merriweather', serif;
   font-size: 2.5rem; /* plus grand */
-}
-
-p{
-  font-family: 'Open sans', sans-serif;
-  letter-spacing: 3px;
-  font-weight : lighter
-
 }
 
 body{
@@ -75,7 +66,7 @@ body{
 /* =========================
    Hero
 ========================= */
-.hero {
+.hero{
   position: relative;
   width: 100%;
   height: 90vh;
@@ -83,84 +74,49 @@ body{
   align-items: center;
   justify-content: center;
 }
-
-.hero-image {
+.hero-image{
   position: absolute; inset: 0;
   width: 100%; height: 100%;
   object-fit: cover; z-index: -1;
-  filter: brightness(0.8);
-
+  /* flou léger + léger zoom */
+  filter: blur(2px);
   transform: scale(1.03);
 }
+.hero-content{ text-align: center; color: var(--white); }
+.hero-logo{ max-width: 200px; margin-bottom: 30px; }
 
-/* === Homepage hero refinements === */
-.hero-content { 
-  width: 100%;
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  align-items: center;
-  padding-top: 2vh; /* valeur réduite = logo monte */
-  text-align: center;
-  color: var(--white);
-}
-
-
-.hero-logo { 
-  max-width: 280px; /* taille augmentée */
-}
-
-
-.hero-welcome {
-  font-family: 'Open sans', serif;
-  letter-spacing: 10px;
-  text-transform: uppercase;
-  font-size: 2rem; /* plus grand pour un effet prestige */
-  opacity: 0.9;
-  margin-bottom: 8px;
-}
-
-
-.hero-buttons {
-  position: absolute;
-  bottom: 24px;
-  
-  
-  margin: 0;
-}
-
-.hero-buttons .btn {
+.hero-buttons{ margin: 20px 0; }
+.hero-buttons .btn{
   display: inline-block;
-  background-color: var(--green);
+  background-color: var(--teal);
   color: var(--gold);
-  padding: 10px 16px;
+  padding: 10px 16px;         /* taille affinée */
   margin: 10px;
-  font-weight: lighter;
+  font-weight: bold;
   text-decoration: none;
   border-radius: 4px;
-  transition: filter 0.3s, transform 0.3s;
-  font-size: 1em;
-  border: 1px solid rgba(0,0,0,0.1);
-  font-family: 'Open sans'seif;
-  letter-spacing: 5px;
+  transition: background .3s;
+  font-size: .85em;
 }
+.hero-buttons .btn:hover{ background-color: #006666; }
 
-.hero-buttons .btn:hover { 
-  filter: brightness(1.05);
-  transform: translateY(-1px);
+.hero-slogan{
+  margin-top: 30px;
+
+  letter-spacing: 1.5px;
+  background-color: rgba(0,77,77,.8);
+  padding: 8px 15px;
+  display: inline-block;
 }
-
 
 /* =========================
    Catégories
 ========================= */
 .section-title{
   text-align: center;
-  font-size: 2rem;
   margin: 30px 0;
+  letter-spacing: 2px;
   color: var(--white);
-  font-weight: lighter;
 }
 .category-grid{
   display: grid;
@@ -259,7 +215,7 @@ body{
   content: "";
   position: absolute; inset: 0;
   background: url('images/index/avisbg.png') center/cover no-repeat;
-  filter: brightness(0.6);
+  filter: blur(2px);
   transform: scale(1.03);
   z-index: 0;
 }
@@ -280,9 +236,8 @@ body{
   color: var(--ink);
 }
 .contact h2{
- 
+  margin: 0 auto 30px;
   max-width: 1000px;
-  text-align: center;
 }
 .contact-grid{
   max-width: 1000px; margin: 0 auto;
@@ -300,7 +255,6 @@ body{
 .contact-box h3{
   margin: 0 0 12px;
   font-weight: 700;
-  text-align: center;
 }
 
 /* =========================
@@ -522,6 +476,21 @@ body{
   color: white;
 }
 
+/* Partie Une aventure française */
+.aventure-francaise .images-grid {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  flex-wrap: wrap; /* Pour s'adapter sur petits écrans */
+}
+
+.aventure-francaise .images-grid img {
+  width: 250px; /* Taille réduite */
+  height: auto;
+  border-radius: 8px;
+  object-fit: cover;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
 
 .aventure-images {
   flex: 1;
