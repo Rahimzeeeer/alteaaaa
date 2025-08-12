@@ -40,12 +40,9 @@ h4{
 p{
   font-size: 0.9rem; /* plus grand */
 }
-div{
-  font-size: 0.8rem; /* plus grand */
-}
 
 
-p, span, div, ul, li{
+p, span{
   font-family: 'Open sans', sans-serif;
   letter-spacing: 2px;
   font-weight : lighter
@@ -465,30 +462,20 @@ body{
 .lodging-gallery{
   max-width: 1100px; margin: 40px auto 80px; padding: 0 20px;
   display: grid; grid-template-columns: 1fr 1.2fr; gap: 28px;
-  grid-template-columns: 1fr; /* 1 seule colonne */
 }
 .lg-text p{ line-height: 1.8; margin: 0; }
 .lg-grid{
-  display: grid; gap: 0px;
-   grid-template-columns: repeat(3, 1fr); /* 3 colonnes */
+  display: grid; gap: 22px;
 }
 .lg-item{
   background: rgba(255,255,255,.06);
   border: 1px solid rgba(255,255,255,.15);
 }
-.lg-item img{ 
-    display: block; 
-    width: 100%; 
-    height: 200px; /* même hauteur pour toutes */
-    object-fit: cover; /* rogne l'image pour remplir sans déformation */
-    
-}
+.lg-item img{ display: block; width: 100%; height: auto; }
 .lg-item figcaption{
   text-align: center;
   padding: 12px 10px;
-  font-family: 'Open sans', sans-serif;
-  font-size: 0.8rem;
-  letter-spacing: 3px;
+  font-family: 'Merriweather', serif;
   border-top: 1px solid rgba(255,255,255,.15);
 }
 
@@ -549,7 +536,7 @@ body{
 /* UNE AVENTURE FRANÇAISE */
 .resto-aventure {
   display: flex;
-  flex-direction: column; /* empile texte puis images */
+  flex-wrap: wrap;
   gap: 20px;
   padding: 50px 5%;
   background-color: #004d40;
@@ -558,15 +545,15 @@ body{
 
 
 .aventure-images {
+  flex: 1;
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   gap: 20px;
 }
 .aventure-images img {
   width: 100%;
-  height: 250px;        /* hauteur fixe */
-  object-fit: cover;    /* recadrage élégant */
-  border-radius: 8px;   /* optionnel, angles arrondis */
+  border-radius: 8px;
+  object-fit: cover;
 }
 .aventure-text {
   flex: 1;
@@ -584,7 +571,6 @@ body{
 /* HORAIRES */
 .resto-horaires {
   display: flex;
-  flex-direction: column;
   flex-wrap: wrap;
   gap: 20px;
   padding: 50px 5%;
@@ -593,13 +579,11 @@ body{
 .horaires-images {
   flex: 1;
   display: flex;
-
-  flex-direction: row;
+  flex-direction: column;
   gap: 20px;
 }
 .horaires-images img {
   width: 100%;
-    height: 300px;
   border-radius: 8px;
   object-fit: cover;
 }

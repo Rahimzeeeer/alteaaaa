@@ -45,7 +45,7 @@ div{
 }
 
 
-p, span, div, ul, li{
+p, span, div{
   font-family: 'Open sans', sans-serif;
   letter-spacing: 2px;
   font-weight : lighter
