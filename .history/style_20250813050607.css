@@ -966,59 +966,37 @@ html { scroll-behavior: smooth; }
   .faq-item > summary{ padding: 16px 52px 16px 16px; }
 }
 
-/* =========================
-   Notre resort — vidéo (large)
-========================= */
-
-/* (Option premium) on élargit un peu la section pour accueillir une vidéo > 1000px */
-.resort{
-  max-width: 1200px;   /* était souvent à 1000px */
-  margin: 50px auto;
-  padding: 20px;
-  color: var(--white);
-  text-align: center;  /* garde l’alignement propre si tu l’avais */
+/* === Video (Notre resort) : intégration premium & légère === */
+.deluxe-video{
+  position: relative;
+  aspect-ratio: 16 / 9;           /* ratio propre, pas de saut de layout */
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 18px 50px rgba(0,0,0,.25);
+  background: #000;               /* fond neutre derrière le poster */
 }
-
-.resort-video{
-  display: grid;
-  place-items: center;
-  padding: 0;
-}
-
-/* Démarrage propre + masquage éventuels bandeaux intégrés */
-.deluxe-video video{
-  width: 100%;
-  height: 100%;
-  display: block;
-  object-fit: cover;
-  /* léger zoom pour “manger” d’éventuelles bandes noires encodées */
-  transform: scale(1.015);
-  /* si tu veux un peu plus/moins : 1.01 à 1.03 */
-}
-
 
 .deluxe-video video{
   width: 100%;
   height: 100%;
   display: block;
-  object-fit: cover;
+  object-fit: cover;              /* au cas où la source varie */
   filter: contrast(1.02) saturate(1.02);
 }
 
-/* Si la note existe encore quelque part, on la masque */
-.resort-video-note{ 
-  display: none !important; 
+.resort-video-note{
+  text-align: center;
+  margin-top: 10px;
+  font-size: .95rem;
+  opacity: .85;
 }
 
-/* Responsive : sur petit écran, la vidéo prend toute la largeur */
-@media (max-width: 1200px){
-  .deluxe-video{ max-width: 100%; }
+.resort-video-note a{
+  color: var(--gold);
+  text-decoration: none;
+  border-bottom: 1px solid rgba(217,176,83,.5);
+}
+.resort-video-note a:hover{
+  filter: brightness(1.05);
 }
 
-/* Notre Resort — titre plus grand */
-.resort h1,
-.resort .section-title{
-  font-size: clamp(2.4rem, 1.6rem + 2vw, 3.2rem); /* grossit proprement selon l’écran */
-  line-height: 1.15;
-  letter-spacing: 0.5px;
-}

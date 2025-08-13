@@ -967,35 +967,26 @@ html { scroll-behavior: smooth; }
 }
 
 /* =========================
-   Notre resort — vidéo (large)
+   Notre resort — vidéo
+   (taille contenue, centrée)
 ========================= */
-
-/* (Option premium) on élargit un peu la section pour accueillir une vidéo > 1000px */
-.resort{
-  max-width: 1200px;   /* était souvent à 1000px */
-  margin: 50px auto;
-  padding: 20px;
-  color: var(--white);
-  text-align: center;  /* garde l’alignement propre si tu l’avais */
-}
 
 .resort-video{
   display: grid;
-  place-items: center;
-  padding: 0;
+  place-items: center;      /* centre le bloc vidéo dans la section */
+  padding: 0;               /* on laisse la marge à la section .resort */
 }
 
-/* Démarrage propre + masquage éventuels bandeaux intégrés */
-.deluxe-video video{
+.deluxe-video{
   width: 100%;
-  height: 100%;
-  display: block;
-  object-fit: cover;
-  /* léger zoom pour “manger” d’éventuelles bandes noires encodées */
-  transform: scale(1.015);
-  /* si tu veux un peu plus/moins : 1.01 à 1.03 */
+  max-width: 720px;         /* largeur “carte” élégante */
+  aspect-ratio: 16 / 9;     /* ratio propre, pas de débordement */
+  border-radius: 12px;
+  overflow: hidden;
+  background: #000;
+  box-shadow: 0 14px 36px rgba(0,0,0,.22);
+  margin: 10px auto 0;      /* léger espace au-dessus si besoin */
 }
-
 
 .deluxe-video video{
   width: 100%;
@@ -1005,20 +996,12 @@ html { scroll-behavior: smooth; }
   filter: contrast(1.02) saturate(1.02);
 }
 
-/* Si la note existe encore quelque part, on la masque */
+/* Supprime la note “Connexion lente... Télécharger” si elle existe */
 .resort-video-note{ 
   display: none !important; 
 }
 
 /* Responsive : sur petit écran, la vidéo prend toute la largeur */
-@media (max-width: 1200px){
+@media (max-width: 800px){
   .deluxe-video{ max-width: 100%; }
-}
-
-/* Notre Resort — titre plus grand */
-.resort h1,
-.resort .section-title{
-  font-size: clamp(2.4rem, 1.6rem + 2vw, 3.2rem); /* grossit proprement selon l’écran */
-  line-height: 1.15;
-  letter-spacing: 0.5px;
 }

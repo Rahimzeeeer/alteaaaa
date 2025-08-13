@@ -1014,11 +1014,3 @@ html { scroll-behavior: smooth; }
 @media (max-width: 1200px){
   .deluxe-video{ max-width: 100%; }
 }
-
-/* Notre Resort — titre plus grand */
-.resort h1,
-.resort .section-title{
-  font-size: clamp(2.4rem, 1.6rem + 2vw, 3.2rem); /* grossit proprement selon l’écran */
-  line-height: 1.15;
-  letter-spacing: 0.5px;
-}
