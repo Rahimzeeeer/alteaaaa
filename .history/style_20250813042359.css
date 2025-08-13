@@ -1,0 +1,968 @@
+/* =========================
+   Variables & reset
+========================= */
+:root{
+  --green: #0a4e48;      /* vert profond (fond global) */
+  --teal:  #004d4d;      /* navbar / boutons */
+  --gold:  gold;         /* accents dorés */
+  --ink:   #233;         /* texte sombre sur fond clair */
+  --white: #fff;
+}
+
+*{ box-sizing: border-box; }
+
+/* ===== Fonts ===== */
+/* Exemple : Serif pour titres et Sans-serif pour le reste */
+@import url('https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&family=Open+Sans:wght@400;600&display=swap');
+
+
+/* Titres en serif */
+h1, h2, h3, h4, .section-title {
+  font-family: 'Open sans', serif;
+  letter-spacing: 7px;
+  font-size: 2.5rem; /* plus grand */
+}
+
+h1{
+  font-size: 3rem; /* plus grand */
+}
+h2{
+  font-size: 2rem; /* plus grand */
+}
+
+h3{
+  font-size: 1.8rem; /* plus grand */
+}
+
+h4{
+  font-size: 1.3rem; /* plus grand */
+}
+p{
+  font-size: 0.9rem; /* plus grand */
+}
+div{
+  font-size: 0.8rem; /* plus grand */
+}
+
+
+p, span, div, ul, li{
+  font-family: 'Open sans', sans-serif;
+  letter-spacing: 2px;
+  font-weight : lighter
+}
+
+
+
+body{
+  margin: 0;
+  font-family: 'Open Sans', sans-serif;
+  background-color: var(--green);
+  color: var(--white);
+}
+
+/* Texte vert sur fond jaune */
+.gold-bg {
+    background-color: #d4a949;
+    color: #004d40; /* Vert foncé élégant */
+}
+
+.gold-bg h2,
+.gold-bg h3,
+.gold-bg p {
+    color: #004d40;
+}
+
+
+/* =========================
+   Navbar
+========================= */
+.navbar{
+  background-color: var(--teal);
+  padding: 10px 0;
+  text-align: right;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+}
+.navbar ul{ list-style: none; margin: 0; padding: 0; }
+.navbar li{ display: inline-block; margin: 0 15px; }
+.navbar a{
+  color: #ccc;
+  text-decoration: none;
+  font-size: 16px;
+  transition: color .3s ease;
+}
+.navbar a:hover,
+.navbar a.active{ color: var(--white); }
+.navbar a.active{ font-weight: bold; }
+
+/* =========================
+   Hero
+========================= */
+.hero {
+  position: relative;
+  width: 100%;
+  height: 90vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.hero-image {
+  position: absolute; inset: 0;
+  width: 100%; height: 100%;
+  object-fit: cover; z-index: -1;
+  filter: brightness(0.8);
+  transform: scale(1.03);
+}
+
+/* === Homepage hero refinements === */
+.hero-content { 
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  padding-top: 2vh; /* valeur réduite = logo monte */
+  text-align: center;
+  color: var(--white);
+}
+
+
+.hero-logo { 
+  max-width: 280px; /* taille augmentée */
+}
+
+
+.hero-welcome {
+  font-family: 'Open sans', serif;
+  letter-spacing: 10px;
+  text-transform: uppercase;
+  font-size: 2rem; /* plus grand pour un effet prestige */
+  opacity: 0.9;
+  margin-bottom: 8px;
+}
+
+
+.hero-buttons {
+  position: absolute;
+  bottom: 24px;
+  margin: 0;
+}
+
+.hero-buttons .btn {
+  display: inline-block;
+  background-color: var(--green);
+  color: var(--gold);
+  padding: 10px 16px;
+  margin: 10px;
+  font-weight: lighter;
+  text-decoration: none;
+  border-radius: 4px;
+  transition: filter 0.3s, transform 0.3s;
+  font-size: 1em;
+  border: 1px solid rgba(0,0,0,0.1);
+  font-family: 'Open sans'seif;
+  letter-spacing: 5px;
+}
+
+.hero-buttons .btn:hover { 
+  filter: brightness(1.05);
+  transform: translateY(-1px);
+}
+
+
+/* =========================
+   Catégories
+========================= */
+.section-title{
+  text-align: center;
+  font-size: 2rem;
+  margin: 30px 0;
+  color: var(--white);
+  font-weight: lighter;
+}
+
+.category-grid{
+  display: grid;
+  grid-template-columns: repeat(6, 1fr); /* 6 colonnes => 3 cartes par ligne (2 colonnes chacune) */
+  gap: 15px;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+/* Chaque carte occupe 2 colonnes */
+.category-item{
+  grid-column: span 2;
+  display: block;            /* utile si c'est un <a> */
+  position: relative;
+  overflow: hidden;
+  text-decoration: none;     /* si <a>, pas de soulignement */
+}
+
+/* 4e et 5e cartes centrées sur la 2e ligne (layout 3+2) */
+.category-item:nth-child(4){ grid-column: 2 / span 2; } /* démarre en colonne 2 */
+.category-item:nth-child(5){ grid-column: 4 / span 2; } /* démarre en colonne 4 */
+
+.category-item img{ 
+  width: 100%; 
+  display: block; 
+}
+
+.category-item span{
+  position: absolute; 
+  left: 50%; 
+  bottom: 10px;
+  transform: translateX(-50%);
+  background-color: rgba(8,73,70,0.8); /* #084946 avec 80% d’opacité */
+  color: var(--white);
+  padding: 6px 12px;
+  border-radius: 4px;
+  font-weight: 600;
+}
+
+/* Responsive */
+@media (max-width: 900px){
+  .category-grid{ grid-template-columns: 1fr 1fr; }
+  .category-item{ grid-column: auto; } /* annule le placement spécial 3+2 en mobile */
+}
+
+
+/* =========================
+   Notre resort
+========================= */
+.resort{
+  max-width: 1000px;
+  margin: 50px auto;
+  padding: 20px;
+  color: var(--white);
+  text-align: center;
+}
+.resort-text h2{ font-size: 2em; margin: 0 0 10px; }
+.resort-text p{ margin: 15px 0; line-height: 1.5; }
+.btn-gold{
+  background-color: var(--gold);
+  color: var(--teal);
+  padding: 8px 14px;
+  text-decoration: none;
+  font-weight: bold;
+  border-radius: 20px;
+  
+}
+.resort-video video{
+  margin-top: 20px;
+  width: 100%;
+  border-radius: 8px;
+}
+
+/* =========================
+   Actualités
+========================= */
+.actualites{
+  padding: 40px;
+  text-align: center;
+  background-color: var(--teal);
+  color: var(--white);
+}
+.actus-grid{
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  padding: 0 50px; /* marge interne gauche/droite */
+  gap: 20px;
+}
+.actus-item{
+  background: transparent;
+  border: 1px solid var(--gold);
+  position: relative;
+}
+.actus-item img{
+  width: 100%;
+  height: 300px;         /* taille uniforme */
+  object-fit: cover;     /* recadrage propre */
+  border-bottom: 2px solid var(--gold);
+}
+.actus-item h3,p{
+  text-align: left;
+  padding: 0 30px;
+}
+.plus-btn{
+  position: absolute; bottom: 10px; right: 10px;
+  background-color: var(--gold);
+  color: var(--teal);
+  font-weight: bold;
+  border-radius: 50%;
+  padding: 5px 10px;
+  cursor: pointer;
+  text-decoration: none;   /* important pour <a> */
+  display: inline-block;   /* propre pour un lien bouton */
+}
+.plus-btn:hover{
+  filter: brightness(1.05);
+}
+
+
+/* =========================
+   Avis (fond flou en arrière-plan)
+========================= */
+.avis{
+  position: relative;
+  overflow: hidden;
+  min-height: 100vh;                    /* ≈ une page */
+  display: flex; flex-direction: column;
+  justify-content: center; align-items: center;
+  padding: 60px 20px;
+  text-align: center;
+  color: var(--white);
+}
+.avis::before{
+  content: "";
+  position: absolute; inset: 0;
+  background: url('images/index/avisbg.png') center/cover no-repeat;
+  filter: brightness(0.6);
+  transform: scale(1.03);
+  z-index: 0;
+}
+.avis > *{ position: relative; z-index: 1; }
+.avis h2{ margin-bottom: 24px; font-size: 2.2rem; }
+.avis-container{
+  display: flex; justify-content: center; flex-wrap: wrap;
+  gap: 40px;
+}
+.avis-item{ max-width: 360px; font-style: italic; }
+
+/* =========================
+   Nous contacter
+========================= */
+.contact{
+  background-color: #d4a743;  /* fond or/moutarde */
+  padding: 60px 20px;
+  color: var(--ink);
+  text-align: center;
+}
+
+.contact h3 {
+  text-align: left;
+  font-size: 1.8rem;
+  
+}
+
+.contact-grid{
+  max-width: 1000px; margin: 0 auto;
+  display: grid; grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+.contact-box{
+  background: rgba(255,255,255,.02);
+  border: 2px solid var(--green);
+  border-radius: 8px;
+  padding: 24px;
+  min-height: 220px;
+  box-shadow: 0 2px 6px rgba(0,0,0,.08);
+}
+.contact-box h3{
+  margin: 0 0 12px;
+  font-weight: 700;
+}
+
+/* =========================
+   Responsive
+========================= */
+@media (max-width: 900px){
+  .category-grid{ grid-template-columns: 1fr 1fr; }
+  .actus-grid{ grid-template-columns: 1fr; }
+  .contact-grid{ grid-template-columns: 1fr; }
+  .hero{ height: 70vh; }
+}
+
+
+/* =========================
+   Votre maison
+========================= */
+
+/* Bandeau haut avec encart */
+.cover-banner{
+  position: relative;
+  width: 100%;
+  height: 60vh;
+  background: var(--green);
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  padding-top: 40px;
+}
+.cover-banner::before{
+  content: "";
+  position: absolute; inset: 0;
+  background: var(--green) center/cover no-repeat;
+  background-image: var(--cover);
+  
+  z-index: 0;
+}
+.cover-bubble{
+  position: relative;
+  z-index: 1;
+  max-width: 1100px;
+  margin: 0 20px;
+  background: rgba(0,77,77,.7);
+  color: var(--white);
+  padding: 16px 22px;
+  border-radius: 10px;
+  line-height: 1.6;
+}
+
+/* Intro + titre + grand visuel */
+.lodging-intro{
+  max-width: 1100px;
+  margin: 40px auto 20px;
+  padding: 0 20px;
+}
+.lodging-intro h1{
+  font-family: 'Merriweather', serif;
+  font-size: 3rem;
+  text-align: center;
+  margin: 10px 0 16px;
+}
+.lodging-intro p{
+  text-align: center;
+  line-height: 1.7;
+  max-width: 980px;
+  margin: 0 auto 28px;
+}
+.lodging-hero{
+  position: relative;
+  max-width: 900px;
+  margin: 0 auto 32px;
+  border: 8px solid rgba(0,0,0,.15);
+  box-shadow: 0 10px 30px rgba(0,0,0,.25);
+}
+.lodging-hero img{
+  display: block;
+  width: 100%;
+  height: auto;
+}
+.slide-btn{
+  position: absolute; top: 50%; transform: translateY(-50%);
+  width: 54px; height: 54px; border: none; cursor: pointer;
+  border-radius: 50%;
+  background: var(--gold);
+  color: var(--teal);
+  display: grid; place-items: center;
+  box-shadow: 0 6px 20px rgba(0,0,0,.25);
+}
+.slide-btn.prev{ left: -22px; }
+.slide-btn.next{ right: -22px; }
+
+/* Tarifs */
+.price-cards{
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 28px;
+  margin: 26px auto 10px;
+  max-width: 1100px;
+}
+.price-card{
+  background: #d4a743;
+  color: var(--ink);
+  padding: 22px;
+  border-radius: 6px;
+  box-shadow: 0 6px 16px rgba(0,0,0,.18);
+  border: 2px solid rgba(0,0,0,.08);
+  text-align: center;
+}
+
+
+/* Panneau des équipements (blanc) */
+.features-panel{
+  background: var(--white);
+  color: var(--ink);
+  margin: 60px auto;
+  max-width: 1100px;
+  border-radius: 6px;
+  padding: 36px 28px;
+}
+.features-grid{
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 22px 40px;
+}
+.feature{
+  display: flex; align-items: center; gap: 12px;
+  font-size: 1rem;
+}
+.feature i{
+  color: #b9c36a;          /* vert jaunâtre comme sur la maquette */
+  font-size: 26px;
+  width: 28px; text-align: center;
+}
+
+/* Texte + galerie à légendes */
+.lodging-gallery{
+  max-width: 1100px; margin: 40px auto 80px; padding: 0 20px;
+  display: grid; grid-template-columns: 1fr 1.2fr; gap: 28px;
+  grid-template-columns: 1fr; /* 1 seule colonne */
+}
+.lg-text p{ line-height: 1.8; margin: 0; }
+.lg-grid{
+  display: grid; gap: 0px;
+   grid-template-columns: repeat(3, 1fr); /* 3 colonnes */
+}
+.lg-item{
+  background: rgba(255,255,255,.06);
+  border: 1px solid rgba(255,255,255,.15);
+}
+.lg-item img{ 
+    display: block; 
+    width: 100%; 
+    height: 200px; /* même hauteur pour toutes */
+    object-fit: cover; /* rogne l'image pour remplir sans déformation */
+    
+}
+.lg-item figcaption{
+  text-align: center;
+  padding: 12px 10px;
+  font-family: 'Open sans', sans-serif;
+  font-size: 0.8rem;
+  letter-spacing: 3px;
+  border-top: 1px solid rgba(255,255,255,.15);
+}
+
+/* Responsive */
+@media (max-width: 1000px){
+  .price-cards{ grid-template-columns: 1fr; }
+  .features-grid{ grid-template-columns: 1fr 1fr; }
+  .lodging-gallery{ grid-template-columns: 1fr; }
+  .slide-btn.prev{ left: 8px; } .slide-btn.next{ right: 8px; }
+}
+@media (max-width: 640px){
+  .cover-banner{ height: 50vh; }
+  .cover-bubble{ font-size: .95rem; }
+  .lodging-intro h1{ font-size: 2.2rem; }
+  .features-grid{ grid-template-columns: 1fr; }
+}
+
+
+
+/* ===== Restaurant ===== */
+
+/* HERO */
+.resto-hero {
+  position: relative;
+  height: 70vh;
+  overflow: hidden;
+}
+.resto-hero img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: brightness(0.75);
+}
+.resto-hero-content {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  color: white;
+}
+.resto-hero-content h1 {
+  font-size: 3rem;
+  margin-bottom: 20px;
+  font-family: 'Merriweather', serif;
+}
+.btn {
+  display: inline-block;
+  padding: 12px 24px;
+  text-decoration: none;
+  border-radius: 5px;
+  font-weight: bold;
+}
+.btn-teal { background-color: #004d40; color: white; }
+.btn-gold { background-color: #d4a743; color: #004d40; }
+.btn:hover { filter: brightness(1.1); }
+
+/* UNE AVENTURE FRANÇAISE */
+.resto-aventure {
+  display: flex;
+  flex-direction: column; /* empile texte puis images */
+  gap: 20px;
+  padding: 50px 5%;
+  background-color: #004d40;
+  color: white;
+}
+
+
+.aventure-images {
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+}
+.aventure-images img {
+  width: 100%;
+  height: 250px;        /* hauteur fixe */
+  object-fit: cover;    /* recadrage élégant */
+  border-radius: 8px;   /* optionnel, angles arrondis */
+}
+.aventure-text {
+  flex: 1;
+}
+.aventure-text h2 {
+  font-family: 'Merriweather', serif;
+  color: #d4a743;
+  margin-bottom: 20px;
+}
+.aventure-text p {
+  margin-bottom: 20px;
+  line-height: 1.6;
+}
+
+/* HORAIRES */
+.resto-horaires {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  gap: 20px;
+  padding: 50px 5%;
+  background-color: #d4a743;
+}
+.horaires-images {
+  flex: 1;
+  display: flex;
+
+  flex-direction: row;
+  gap: 20px;
+}
+.horaires-images img {
+  width: 100%;
+    height: 300px;
+  border-radius: 8px;
+  object-fit: cover;
+}
+.horaires-text {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.horaires-text h3 {
+  font-family: 'Merriweather', serif;
+  margin-bottom: 20px;
+  color: #004d40;
+}
+.horaires-text ul {
+  margin-bottom: 20px;
+  padding-left: 20px;
+}
+.horaires-text li {
+  margin-bottom: 10px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .resto-aventure, .resto-horaires {
+    flex-direction: column;
+  }
+}
+
+
+/* Couleurs de fond */
+.gold-bg { background-color: #d4a949; padding: 60px 80px; }
+.green-bg { background-color: #004d40; color: white; padding: 60px 80px; }
+
+/* Titres */
+.title {
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 40px;
+}
+.serif { font-family: 'Times New Roman', serif; }
+
+/* Section sport */
+.sport-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 30px;
+}
+.sport-item img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    border-radius: 6px;
+}
+.sport-item h3 {
+    margin-top: 10px;
+    font-size: 1.5rem;
+}
+
+/* Bien-être */
+.wellness-grid {
+    display: grid;
+    grid-template-columns: 1fr 1.5fr;
+    gap: 20px;
+}
+.wellness-grid .images {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+}
+.wellness-grid img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 6px;
+}
+
+/* Communauté */
+.community-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+    text-align: center;
+}
+.community-item img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    border-radius: 6px;
+}
+.community-item h3 {
+    margin-top: 15px;
+    font-size: 1.4rem;
+}
+
+/* Premium */
+.premium-text {
+    text-align: center;
+    margin-bottom: 40px;
+}
+.premium-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr;
+    gap: 20px;
+}
+.premium-grid img {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+    border-radius: 6px;
+}
+
+.gold-bg {
+  background-color: #d4af37; /* jaune doré */
+  color: #004d40; /* texte vert foncé */
+}
+
+.apropos {
+  padding: 60px 5%;
+}
+
+.apropos h2 {
+  font-family: serif;
+  font-size: 2.5rem;
+  text-align: center;
+  margin-bottom: 50px;
+}
+
+.apropos-grid {
+  display: flex;
+  justify-content: space-between;
+  gap: 30px;
+}
+
+.apropos-item {
+  background-color: #004d40; /* vert foncé */
+  color: white;
+  border-radius: 8px;
+  overflow: hidden;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.apropos-item img {
+  width: 100%;
+  height: 250px;
+  object-fit: cover;
+}
+
+.apropos-text {
+  padding: 20px;
+}
+
+.apropos-text h3 {
+  font-size: 1.4rem;
+ color: white;
+  margin-bottom: 10px;
+  font-family: serif;
+}
+
+.apropos-text p, 
+.apropos-text ul {
+  font-size: 0.95rem;
+  color: white;
+  line-height: 1.5;
+}
+
+.apropos-text ul {
+  list-style-type: disc;
+  padding-left: 20px;
+}
+
+@media (max-width: 900px) {
+  .apropos-grid {
+    flex-direction: column;
+  }
+}
+
+html { scroll-behavior: smooth; }
+
+/* === LES SERVICES (section courte) === */
+#services-core .title { margin-bottom: 16px; }
+
+.services-mini{
+  display: grid;
+  grid-template-columns: 1.2fr 1fr; /* liste à gauche, 4 photos à droite */
+  gap: 24px;
+  align-items: start;
+}
+
+.services-list{
+  margin: 0;
+  padding-left: 18px;         /* puces standards */
+  line-height: 1.7;
+  font-size: 1rem;
+}
+.services-list li{ margin-bottom: 8px; }
+
+/* Grille 2x2 compacte pour 4 photos */
+.services-gallery2{
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+}
+.services-gallery2 img{
+  width: 100%;
+  height: 150px;              /* taille uniforme, look premium */
+  object-fit: cover;
+  border-radius: 8px;
+  display: block;
+}
+.services-gallery2 figcaption{
+  text-align: center;
+  font-size: .9rem;
+  margin-top: 6px;
+  color: var(--white);        /* lisible sur fond vert */
+  opacity: .95;
+}
+
+/* Responsive */
+@media (max-width: 900px){
+  .services-mini{ grid-template-columns: 1fr; }
+  .services-gallery2 img{ height: 130px; }
+}
+
+/* ===== FAQ (À propos) ===== */
+.faq-section{
+  padding: 60px 5%;
+  background: transparent; /* garde ta DA de page */
+}
+.faq-wrap{
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.faq-title{
+  font-family: 'Merriweather', serif;
+  font-size: 2.2rem;
+  text-align: center;
+  margin: 0 0 28px;
+  letter-spacing: .5px;
+  color: var(--white);
+}
+
+/* Petits intertitres de groupes */
+.faq-group{
+  font-family: 'Merriweather', serif;
+  font-size: 1.15rem;
+  letter-spacing: .5px;
+  color: var(--gold);
+  margin: 26px 0 10px;
+  position: relative;
+}
+.faq-group::after{
+  content: "";
+  display: block;
+  height: 1px;
+  background: linear-gradient(90deg, rgba(217,176,83,.35), rgba(217,176,83,0));
+  margin-top: 8px;
+}
+
+/* Items (details) */
+.faq-item{
+  border: 1px solid rgba(217,176,83,.35);        /* or doux */
+  background: rgba(255,255,255,.03);             /* léger voile */
+  border-radius: 12px;
+  overflow: hidden;
+  margin-bottom: 12px;
+  box-shadow: 0 6px 16px rgba(0,0,0,.10);
+}
+
+/* Entête clickable */
+.faq-item > summary{
+  list-style: none;
+  cursor: pointer;
+  padding: 18px 56px 18px 18px; /* espace pour le chevron à droite */
+  font-weight: 600;
+  color: var(--white);
+  line-height: 1.5;
+  position: relative;
+  outline: none;
+  user-select: none;
+}
+.faq-item > summary::-webkit-details-marker{ display: none; }
+
+/* Chevron décoratif */
+.faq-item > summary::after{
+  content: "";
+  position: absolute;
+  right: 18px; top: 50%;
+  width: 12px; height: 12px;
+  border-right: 2px solid var(--gold);
+  border-bottom: 2px solid var(--gold);
+  transform: translateY(-50%) rotate(45deg);
+  transition: transform .25s ease;
+  opacity: .9;
+}
+.faq-item[open] > summary::after{
+  transform: translateY(-50%) rotate(-135deg);
+}
+
+/* Hover / Focus (accessibilité seniors) */
+.faq-item > summary:hover{
+  background: rgba(217,176,83,.08);
+}
+.faq-item > summary:focus-visible{
+  box-shadow: 0 0 0 3px rgba(217,176,83,.35) inset;
+  border-radius: 12px;
+}
+
+/* Contenu */
+.faq-content{
+  padding: 0 18px 18px 18px;
+  color: var(--white);
+  line-height: 1.8;
+  font-size: 1rem;
+}
+.faq-content p{ margin: 12px 0; }
+.faq-content ul, .faq-content ol{ margin: 8px 0 8px 20px; }
+.faq-content li{ margin: 6px 0; }
+
+/* Ancrage confortable (si liens #faq-...) */
+#faq, [id^="faq-"]{
+  scroll-margin-top: 80px; /* utile si un header devient fixe un jour */
+}
+
+/* Responsive */
+@media (max-width: 900px){
+  .faq-title{ font-size: 2rem; }
+  .faq-item > summary{ padding: 16px 52px 16px 16px; }
+}
+

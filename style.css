@@ -859,3 +859,110 @@ html { scroll-behavior: smooth; }
   .services-gallery2 img{ height: 130px; }
 }
 
+/* ===== FAQ (À propos) ===== */
+.faq-section{
+  padding: 60px 5%;
+  background: transparent; /* garde ta DA de page */
+}
+.faq-wrap{
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.faq-title{
+  font-family: 'Merriweather', serif;
+  font-size: 2.2rem;
+  text-align: center;
+  margin: 0 0 28px;
+  letter-spacing: .5px;
+  color: var(--white);
+}
+
+/* Petits intertitres de groupes */
+.faq-group{
+  font-family: 'Merriweather', serif;
+  font-size: 1.15rem;
+  letter-spacing: .5px;
+  color: var(--gold);
+  margin: 26px 0 10px;
+  position: relative;
+}
+.faq-group::after{
+  content: "";
+  display: block;
+  height: 1px;
+  background: linear-gradient(90deg, rgba(217,176,83,.35), rgba(217,176,83,0));
+  margin-top: 8px;
+}
+
+/* Items (details) */
+.faq-item{
+  border: 1px solid rgba(217,176,83,.35);        /* or doux */
+  background: rgba(255,255,255,.03);             /* léger voile */
+  border-radius: 12px;
+  overflow: hidden;
+  margin-bottom: 12px;
+  box-shadow: 0 6px 16px rgba(0,0,0,.10);
+}
+
+/* Entête clickable */
+.faq-item > summary{
+  list-style: none;
+  cursor: pointer;
+  padding: 18px 56px 18px 18px; /* espace pour le chevron à droite */
+  font-weight: 600;
+  color: var(--white);
+  line-height: 1.5;
+  position: relative;
+  outline: none;
+  user-select: none;
+}
+.faq-item > summary::-webkit-details-marker{ display: none; }
+
+/* Chevron décoratif */
+.faq-item > summary::after{
+  content: "";
+  position: absolute;
+  right: 18px; top: 50%;
+  width: 12px; height: 12px;
+  border-right: 2px solid var(--gold);
+  border-bottom: 2px solid var(--gold);
+  transform: translateY(-50%) rotate(45deg);
+  transition: transform .25s ease;
+  opacity: .9;
+}
+.faq-item[open] > summary::after{
+  transform: translateY(-50%) rotate(-135deg);
+}
+
+/* Hover / Focus (accessibilité seniors) */
+.faq-item > summary:hover{
+  background: rgba(217,176,83,.08);
+}
+.faq-item > summary:focus-visible{
+  box-shadow: 0 0 0 3px rgba(217,176,83,.35) inset;
+  border-radius: 12px;
+}
+
+/* Contenu */
+.faq-content{
+  padding: 0 18px 18px 18px;
+  color: var(--white);
+  line-height: 1.8;
+  font-size: 1rem;
+}
+.faq-content p{ margin: 12px 0; }
+.faq-content ul, .faq-content ol{ margin: 8px 0 8px 20px; }
+.faq-content li{ margin: 6px 0; }
+
+/* Ancrage confortable (si liens #faq-...) */
+#faq, [id^="faq-"]{
+  scroll-margin-top: 80px; /* utile si un header devient fixe un jour */
+}
+
+/* Responsive */
+@media (max-width: 900px){
+  .faq-title{ font-size: 2rem; }
+  .faq-item > summary{ padding: 16px 52px 16px 16px; }
+}
+
